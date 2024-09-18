@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://c3hyps54gevmm"]
 
-[ext_resource type="PackedScene" uid="uid://co4ox32dmcar5" path="res://game/actor/player/nora.tscn" id="1_miex1"]
+[ext_resource type="PackedScene" uid="uid://co4ox32dmcar5" path="res://game/actors/player/player.tscn" id="1_miex1"]
 [ext_resource type="Texture2D" uid="uid://blhhkpsamayg2" path="res://icon.svg" id="2_il0gf"]
 
-[node name="street" type="Node2D"]
+[node name="Street" type="Node2D"]
 
-[node name="nora" parent="." instance=ExtResource("1_miex1")]
+[node name="Player" parent="." instance=ExtResource("1_miex1")]
 position = Vector2(21, 24)
 
 [node name="Icon" type="Sprite2D" parent="."]
