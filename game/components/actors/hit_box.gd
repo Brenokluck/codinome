@@ -5,6 +5,7 @@ func _init() -> void:
 	
 func hit(damage: float) -> void:
 	print('%s hit with %s damage' % [name, str(damage)])
+	print('')
 	for hurtbox: HurtBox in get_overlapping_areas().filter(_filter_hurtbox):
 		hurtbox.hurt(damage)
 	
