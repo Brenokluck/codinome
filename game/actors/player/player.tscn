@@ -1,21 +1,36 @@
-[gd_scene load_steps=4 format=3 uid="uid://co4ox32dmcar5"]
+[gd_scene load_steps=6 format=3 uid="uid://co4ox32dmcar5"]
 
 [ext_resource type="Texture2D" uid="uid://blhhkpsamayg2" path="res://icon.svg" id="1_n0dyf"]
 [ext_resource type="Script" path="res://game/actors/player/player.gd" id="1_uafm4"]
+[ext_resource type="Script" path="res://game/components/actors/hit_box.gd" id="3_y6l8x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ym8d"]
+size = Vector2(44, 37)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cshbe"]
+size = Vector2(15, 37)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_uafm4")
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
-position = Vector2(-4.76837e-07, -4.76837e-07)
-scale = Vector2(0.140625, 0.140625)
+position = Vector2(-9.53674e-07, -0.5)
+scale = Vector2(0.34375, 0.289063)
 texture = ExtResource("1_n0dyf")
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_2ym8d")
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
 position = Vector2(-4.76837e-07, -4.76837e-07)
 scale = Vector2(0.140625, 0.140625)
+
+[node name="HitBox" type="Area2D" parent="."]
+position = Vector2(0.0265484, 0)
+script = ExtResource("3_y6l8x")
+
+[node name="HitBoxCollision" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(29.5, -0.5)
+shape = SubResource("RectangleShape2D_cshbe")
+debug_color = Color(0.984314, 0, 0.337255, 0.419608)
