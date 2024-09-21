@@ -1,25 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3hyps54gevmm"]
+[gd_scene load_steps=3 format=3 uid="uid://c3hyps54gevmm"]
 
 [ext_resource type="PackedScene" uid="uid://co4ox32dmcar5" path="res://game/actors/player/player.tscn" id="1_miex1"]
-[ext_resource type="Script" path="res://game/components/actors/hurt_box.gd" id="2_d6lr2"]
-[ext_resource type="Texture2D" uid="uid://blhhkpsamayg2" path="res://icon.svg" id="2_il0gf"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hwyhj"]
-size = Vector2(61, 67)
+[ext_resource type="PackedScene" uid="uid://c7rjqge6bsmt0" path="res://game/actors/thug/thug.tscn" id="2_t26qu"]
 
 [node name="Street" type="Node2D"]
 
-[node name="HurtBox" type="Area2D" parent="."]
-script = ExtResource("2_d6lr2")
-
-[node name="Sprite2D" type="Sprite2D" parent="HurtBox"]
-position = Vector2(112.5, 41.5)
-scale = Vector2(0.476563, 0.523438)
-texture = ExtResource("2_il0gf")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(112.5, 41.5)
-shape = SubResource("RectangleShape2D_hwyhj")
-
 [node name="Player" parent="." instance=ExtResource("1_miex1")]
 position = Vector2(21, 24)
+
+[node name="Thug" parent="." instance=ExtResource("2_t26qu")]
+position = Vector2(189, 85)
+scale = Vector2(0.5, 0.5)
+
+[node name="Thug2" parent="." instance=ExtResource("2_t26qu")]
+position = Vector2(283.5, 127.5)
+scale = Vector2(0.25, 0.25)

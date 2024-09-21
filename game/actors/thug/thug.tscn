@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7rjqge6bsmt0"]
+
+[ext_resource type="Texture2D" uid="uid://blhhkpsamayg2" path="res://icon.svg" id="1_x1r1a"]
+[ext_resource type="Script" path="res://game/components/actors/hurt_box.gd" id="2_yc4wk"]
+[ext_resource type="Script" path="res://game/components/actors/health.gd" id="3_pypcp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yd55i"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mr7bv"]
+size = Vector2(124, 124)
+
+[node name="Thug" type="CharacterBody2D"]
+
+[node name="ThugSprite" type="Sprite2D" parent="."]
+modulate = Color(0.894118, 0, 0.262745, 1)
+texture = ExtResource("1_x1r1a")
+
+[node name="ThugCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_yd55i")
+
+[node name="HurtBox" type="Area2D" parent="."]
+script = ExtResource("2_yc4wk")
+
+[node name="HurtBoxCollision" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("RectangleShape2D_mr7bv")
+debug_color = Color(0.705882, 0.270588, 0.0313726, 0.419608)
+
+[node name="Health" type="Node2D" parent="." node_paths=PackedStringArray("hurt_box")]
+script = ExtResource("3_pypcp")
+hurt_box = NodePath("../HurtBox")
