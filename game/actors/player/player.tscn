@@ -1,14 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://co4ox32dmcar5"]
+[gd_scene load_steps=8 format=3 uid="uid://co4ox32dmcar5"]
 
 [ext_resource type="Texture2D" uid="uid://blhhkpsamayg2" path="res://icon.svg" id="1_n0dyf"]
 [ext_resource type="Script" path="res://game/actors/player/player.gd" id="1_uafm4"]
 [ext_resource type="Script" path="res://game/components/actors/hit_box.gd" id="3_y6l8x"]
+[ext_resource type="Script" path="res://game/components/actors/hurt_box.gd" id="4_tgvxl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ym8d"]
 size = Vector2(44, 37)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cshbe"]
 size = Vector2(15, 37)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3cfob"]
+size = Vector2(42, 35)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_uafm4")
@@ -34,3 +38,11 @@ script = ExtResource("3_y6l8x")
 position = Vector2(29.5, -0.5)
 shape = SubResource("RectangleShape2D_cshbe")
 debug_color = Color(0.984314, 0, 0.337255, 0.419608)
+
+[node name="HurtBox" type="Area2D" parent="."]
+script = ExtResource("4_tgvxl")
+
+[node name="HurtBoxCollision" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_3cfob")
+debug_color = Color(0.870588, 0.34902, 0, 0.419608)

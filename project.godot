@@ -23,6 +23,10 @@ gdscript/warnings/untyped_declaration=2
 
 project/assembly_name="Codinome"
 
+[editor_plugins]
+
+enabled=PackedStringArray()
+
 [input]
 
 move_left={
